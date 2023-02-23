@@ -23,6 +23,24 @@ export default function Login(){
     //Handle Login API Integration here
     const authenticateUser = () =>{
 
+        const endpoint=`https://localhost:7214/Auth/login`;
+        fetch(endpoint,
+             {
+             method:'POST',
+             headers: {
+             'Accept': 'application/json',
+             'Content-Type': 'application/json'
+             },
+             body:JSON.stringify({userName: 'readwrite@user.com', password: 'Readwrite@user'})
+             //body:JSON.stringify({userName: 'readwrite@user.com', password: 'Readwrite@user'})
+            //  body:{'userName': 'readwrite@user.com',
+            //  'password': 'Readwrite@user'}
+             }).then(response=>response.json())
+             .then(data=>{
+                console.log(data);
+             })
+             .catch(error=>console.log(error))
+
     }
 
     return(
